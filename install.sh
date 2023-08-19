@@ -184,3 +184,65 @@ if [ $webserver -eq 1 ]; then
 else
     sudo service apache2 restart
 fi
+
+message=""
+message+="=================================\n"
+message+="Installation complete\n"
+message+="=================================\n"
+message+="\n"
+message+="=================================\n"
+message+="MySQL username: $mysqlusername\n"
+message+="MySQL password: $mysqlpassword\n"
+message+="=================================\n"
+message+="\n"
+message+="=================================\n"
+message+="PHP version: $phpversion\n"
+message+="=================================\n"
+message+="\n"
+message+="=================================\n"
+message+="Webserver: "
+if [ $webserver -eq 1 ]; then
+    message+="nginx\n"
+else
+    message+="apache2\n"
+fi
+message+="=================================\n"
+message+="\n"
+message+="=================================\n"
+message+="Composer: "
+if [ $composer -eq 1 ]; then
+    message+="Installed\n"
+else
+    message+="Not Installed\n"
+fi
+message+="=================================\n"
+message+="\n"
+message+="=================================\n"
+message+="Redis: "
+if [ $redis -eq 1 ]; then
+    message+="Installed\n"
+else
+    message+="Not Installed\n"
+fi
+message+="=================================\n"
+message+="\n"
+message+="=================================\n"
+message+="phpMyAdmin: "
+if [ $phpmyadmin -eq 1 ]; then
+    message+="Installed\n"
+else
+    message+="Not Installed\n"
+fi
+message+="=================================\n"
+message+="\n"
+message+="=================================\n"
+message+="phpMyAdmin URL: http://phpmyadmin.test\n"
+message+="=================================\n"
+message+="\n"
+message+="=================================\n"
+message+="phpMyAdmin username: $mysqlusername\n"
+message+="phpMyAdmin password: $mysqlpassword\n"
+message+="=================================\n"
+message+="\n"
+
+printc $YELLOW "$message"
